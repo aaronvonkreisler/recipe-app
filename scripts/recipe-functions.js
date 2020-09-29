@@ -60,19 +60,26 @@ const generateRecipeDOM = (recipe) => {
 }
 
 const renderRecipes = (recipes, filters) => {
+    const recipeEl = document.querySelector('#recipes')
     const filteredRecipes = recipes.filter((recipe) => {
         return recipe.title.toLowerCase().includes(filters.title.toLowerCase())
     })
 
 
-    document.querySelector('#recipes').innerHTML = ''
+    recipeEl.innerHTML = ''
+    if(filteredRecipes.length > 0) {
+        filteredRecipes.forEach((recipe) => {
+            recipeEl.appendChild(generateRecipeDOM(recipe))
+        
+        })
+    } else {
+        const messageEl = document.createElement('div')
+        messageEl.classList.add('alert', 'alert-primary')
+        messageEl.textContent = "No recipes yet? Add your recipes by clicking the 'new recipe' button or generate a random recipe!"
+        recipeEl.appendChild(messageEl)
 
+    }
 
-    
-    filteredRecipes.forEach((recipe) => {
-        document.querySelector('#recipes').appendChild(generateRecipeDOM(recipe))
-    
-    })
     saveRecipes(recipes)
 }
 
