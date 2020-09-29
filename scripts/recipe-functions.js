@@ -45,6 +45,7 @@ const generateRecipeDOM = (recipe) => {
     } else {
         textEl.textContent = 'Unnamed recipe'
     }
+
     allergensEl.textContent = recipe.allergens
     timeEl.textContent = recipe.time
     dietEl.textContent = recipe.diet
@@ -63,13 +64,20 @@ const renderRecipes = (recipes, filters) => {
         return recipe.title.toLowerCase().includes(filters.title.toLowerCase())
     })
 
+
     document.querySelector('#recipes').innerHTML = ''
+
+
     
     filteredRecipes.forEach((recipe) => {
         document.querySelector('#recipes').appendChild(generateRecipeDOM(recipe))
+    
     })
     saveRecipes(recipes)
 }
+
+
+  
 
 
 
