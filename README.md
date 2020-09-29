@@ -14,6 +14,8 @@ You can also generate a random recipe! Simply navigate to the "Random Recipe" ta
 TODO:
 - [] Add functionality to save the randomly generated recipe to your recipes
 - [] Fix formatting and layout of page
+- [] Adjust grid layout to be responsive on all screen sizes
+- [] Set up webpack and babel
 
 
 Check it out:
