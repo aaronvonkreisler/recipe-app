@@ -5,10 +5,13 @@ const ingredientList = document.querySelector('#ingredient-list')
 const dietTypeElement = document.querySelector('#diet-type')
 const cookTimeElement = document.querySelector('#cook-time')
 const allergensElement = document.querySelector('#allergens')
-
-const recipeId = location.hash.substring(1)
 let recipes = getSavedRecipes()
+const recipeId = location.hash.substring(1)
+
+
+
 let recipe = recipes.find((recipe) => recipe.id === recipeId)
+
 const ingredients = recipes.ingredients
 
 if (!recipe) {

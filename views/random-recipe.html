@@ -28,9 +28,8 @@
               </ul>
             </div>
         </div>
-      </nav>
-
-      
+      </nav>  
+       <!--End Nav  -->
       <div class="container">
         <div class="jumbotron mt-4">
           <h1 class="display-4">Random Recipe Generator </h1>
@@ -42,12 +41,14 @@
             <div class="p-2">
               <button class="btn btn-primary" id="generate-btn"> New Recipe</button>
             </div>
-          </div>
-         
+            <div class="p-2">
+              <button class="btn btn-outline-success" id="save-btn">Add to my recipes</button>
+            </div>
+          </div>        
         </div>
+        <!-- Start Recipe items -->
         <div id="title">        
-        </div>
-        
+        </div>       
           <div class="row">
             <div class="col-6">
               <div class="card" style="width: 30rem;">
@@ -80,12 +81,15 @@
                 <div class="card-body" id="ingredients">
                 </div>
               </div>
-
             </div>
           </div>     
-
-
       </div>
+
+      <script src="/scripts/uuidv4.js"></script>
       <script src="/scripts/requests.js"></script>
+      <script src="/scripts/recipe-functions.js"></script>
+      <script src="/scripts/random-functions.js"></script>
+
+
 </body>
 </html>

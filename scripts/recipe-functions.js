@@ -1,7 +1,7 @@
 'use strict'
 
 const getSavedRecipes = () => {
-    const recipesJSON = localStorage.getItem('recipes')
+    const recipesJSON = localStorage.getItem('recipes') 
     try {
         return recipesJSON ? JSON.parse(recipesJSON) : []
     } catch (e) {
@@ -13,6 +13,7 @@ const saveRecipes = (recipes) => {
     localStorage.setItem('recipes', JSON.stringify(recipes))
 }
 
+
 const deleteRecipe = (id) => {
     
     const recipeIndex = recipes.findIndex((recipe) => recipe.id === id)
@@ -21,7 +22,6 @@ const deleteRecipe = (id) => {
          recipes.splice(recipeIndex, 1)
     }
 }
-
 
 
 const generateRecipeDOM = (recipe) => {
@@ -38,6 +38,7 @@ const generateRecipeDOM = (recipe) => {
     dietEl.classList.add('badge', 'badge-success', 'ml-1', 'text-center' )
     timeEl.classList.add('badge','badge-primary', 'ml-1')
     allergensEl.classList.add('badge', 'badge-warning', 'ml-1')
+   
     //setup the recipe title text 
     if(recipe.title.length > 0) {
         textEl.textContent = recipe.title
@@ -49,6 +50,7 @@ const generateRecipeDOM = (recipe) => {
     allergensEl.textContent = recipe.allergens
     timeEl.textContent = recipe.time
     dietEl.textContent = recipe.diet
+    
     textEl.setAttribute('href', `/views/edit.html#${recipe.id}`)
     recipeEl.appendChild(textEl)
     recipeEl.appendChild(dietEl)
@@ -62,11 +64,11 @@ const generateRecipeDOM = (recipe) => {
 const renderRecipes = (recipes, filters) => {
     const recipeEl = document.querySelector('#recipes')
     const filteredRecipes = recipes.filter((recipe) => {
-        return recipe.title.toLowerCase().includes(filters.title.toLowerCase())
+        return recipe.title.toLowerCase().includes(filters.title.toLowerCase())  
     })
 
-
     recipeEl.innerHTML = ''
+
     if(filteredRecipes.length > 0) {
         filteredRecipes.forEach((recipe) => {
             recipeEl.appendChild(generateRecipeDOM(recipe))
