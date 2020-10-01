@@ -8,6 +8,7 @@ class RandomItem {
         this.title = meal.title
         this.instructions = meal.instructions
         this.ingredientList = meal.extendedIngredients
+        this.displayInstructions = []
         this.image = meal.image
         this.summary = meal.summary
         this.ingredients = []
@@ -26,11 +27,15 @@ class RandomItem {
         })
 
     }
+    extractHTML(html) {
+        const doc = new DOMParser().parseFromString(html, 'text/html')
+        this.displayInstructions.push(doc.body.textContent || '')
+    }
     pushToStorage () {    
         const recipe = {
             title: meal.title,
             ingredients: meal.ingredients,
-            instructions: meal.instructions, 
+            instructions: meal.displayInstructions, 
             diet: [],
             time: [],
             allergens: [],
@@ -45,14 +50,20 @@ document.querySelector('#generate-btn').addEventListener('click', async () => {
     const newItem = await getRandomRecipe()
     meal = new RandomItem(newItem)
     meal.extractIngredients()
+    meal.extractHTML(meal.instructions)
     renderRandomRecipe()
  
 })
 
 document.querySelector('#save-btn').addEventListener('click', (e) => {
     e.preventDefault()
-    meal.pushToStorage()
-    saveRecipes(recipes)
+    if (meal){
+        meal.pushToStorage()
+        saveRecipes(recipes)
+    } else {
+        alert('You must generate a recipe before saving it!')
+    }
+
 
 })
 
