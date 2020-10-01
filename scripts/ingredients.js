@@ -7,7 +7,7 @@ const createIngredients = (recipeId, text) => {
         inStock: false,
         id: uuidv4()
     })
-    saveRecipes()
+    saveRecipes(recipes)
 }
 
 const renderIngredients = (recipeId) => {
