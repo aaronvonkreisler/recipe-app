@@ -12,10 +12,10 @@ This application allows you to store and manage your favorite recipes. Each reci
 You can also generate a random recipe! Simply navigate to the "Random Recipe" tab and get directions, ingredients, a summary describing the meal, and more. 
 
 TODO:
-- [] Add functionality to save the randomly generated recipe to your recipes
-- [] Fix formatting and layout of page
-- [] Adjust grid layout to be responsive on all screen sizes
-- [] Set up webpack and babel
+- [x] ~~Add functionality to save the randomly generated recipe to your recipes~~
+- [ ] Fix formatting and layout of page
+- [ ] Adjust grid layout to be responsive on all screen sizes
+- [ ] Set up webpack and babel
 
 
 Check it out:
