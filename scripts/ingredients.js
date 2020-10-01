@@ -41,8 +41,6 @@ const generateIngredientsDOM = (ingredient) => {
     const div2 = document.createElement('div')
 
     // Set up element calsses
-    div.classList.add('input-group-prepend')
-    div2.classList.add('input-group-text')
     textEl.classList.add('text-left')
     listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center', 'font-italic')
     removeEl.classList.add('badge', 'badge-danger','badge-pill', 'btn')
@@ -66,9 +64,8 @@ const generateIngredientsDOM = (ingredient) => {
         renderIngredients(recipe.id)
     })
     
-    div2.appendChild(checkBox)
-    div.appendChild(div2)
-    listItem.appendChild(div)
+
+    listItem.appendChild(checkBox)
     listItem.appendChild(textEl)
     listItem.appendChild(removeEl)
 

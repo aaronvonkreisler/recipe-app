@@ -35,7 +35,7 @@ const generateRecipeDOM = (recipe) => {
     textEl.classList.add('flex-grow-1','font-weight-bold')
     card.classList.add('card', 'mb-2')
     recipeEl.classList.add('card-body','d-flex')
-    dietEl.classList.add('badge', 'badge-success', 'ml-1', 'text-center' )
+    dietEl.classList.add('badge', 'badge-success', 'ml-1', 'align-middle')
     timeEl.classList.add('badge','badge-primary', 'ml-1')
     allergensEl.classList.add('badge', 'badge-warning', 'ml-1')
    
