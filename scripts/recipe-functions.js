@@ -9,19 +9,10 @@ const getSavedRecipes = () => {
     }
 }
 
-const getSavedRandomRecipes = () => {
-    const recipesJSON = localStorage.getItem('savedRecipes')
-    try {
-        return recipesJSON? JSON.parse(recipesJSON) : []
-    } catch (e) {
-        return []
-    }
-}
-
-
 const saveRecipes = (recipes) => {
     localStorage.setItem('recipes', JSON.stringify(recipes))
 }
+
 
 const deleteRecipe = (id) => {
     
@@ -31,7 +22,6 @@ const deleteRecipe = (id) => {
          recipes.splice(recipeIndex, 1)
     }
 }
-
 
 
 const generateRecipeDOM = (recipe) => {
@@ -76,19 +66,13 @@ const renderRecipes = (recipes, filters) => {
     const filteredRecipes = recipes.filter((recipe) => {
         return recipe.title.toLowerCase().includes(filters.title.toLowerCase())  
     })
-    const savedRandoms = savedRandomRecipes.filter((recipe) => {
-        return recipe.title.toLowerCase().includes(filters.title.toLowerCase())
-    })
-
 
     recipeEl.innerHTML = ''
+
     if(filteredRecipes.length > 0) {
         filteredRecipes.forEach((recipe) => {
             recipeEl.appendChild(generateRecipeDOM(recipe))
         
-        })
-        savedRandoms.forEach((recipe) => {
-            recipeEl.appendChild(generateRecipeDOM(recipe))
         })
     } else {
         const messageEl = document.createElement('div')

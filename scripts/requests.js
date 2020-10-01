@@ -58,7 +58,7 @@ const generateIngredients = (ingredient) => {
         textEl.classList.add('text-left')
         listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center', 'font-italic')
        
-        textEl.textContent = ingredient
+        textEl.textContent = ingredient.text
         listItem.appendChild(textEl)
     
         return listItem
